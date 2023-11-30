@@ -13,15 +13,18 @@ sudo apt-get update
 sudo apt install can-utils -y
 ```
 
-运行初始化虚拟CAN接口shell
+运行初始化虚拟CAN接口
 ```shell
-chmod 777 setup.sh
-./setup.sh
+sudo modprobe can
+sudo modprobe vcan
+sudo ip link add dev vcan0 type vcan
+sudo ip link set up vcan0
 ```
 
-选择直接运行代码
+下载[二进制文件](https://github.com/Cl0udG0d/car_bus_security_simulator/releases)
 ```shell
-python main.py
+chmod 777 cbss
+./cbss
 ```
 ## 功能对应表
 键盘操作
